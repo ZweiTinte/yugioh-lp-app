@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LP App</title>
+    <link rel="stylesheet" type="text/css" href="mainstyle.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Ubuntu"
+    />
+    <script src="code.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <div id="number_generators">
+        <div class="ng_row">
+          <div class="ng_row_x">
+            <div class="number_generators">
+              <button class="number_generator_button" data-cy="rng_x" onclick="generateRandomNumberX()">RNG between 1
+                and x:</button>
+            </div>
+            <div class="ngx_input">
+              <input type="number" data-cy="ngx_input" id="ngx_input" />
+            </div>
+          </div>
+          <div class="ng_labels_x">
+            <label data-cy="one_x_label" id="one_x_label"></label>
+          </div>
+        </div>
+        <div class="ng_row">
+          <div class="number_generators">
+            <button class="number_generator_button" data-cy="rng_dice" onclick="generateRandomNumberDice()">RNG between 1 and 6:</button>
+          </div>
+          <div class="ng_labels">
+            <label data-cy="one_six_label" id="one_six_label"></label>
+          </div>
+        </div>
+        <div class="ng_row">
+          <div class="number_generators" >
+            <button class="number_generator_button" data-cy="rng_coin" onclick="generateRandomNumberCoin()">RNG between 1 and 2: </button>
+          </div>
+          <div class="ng_labels">
+            <label data-cy="zero_one_label" id="zero_one_label"></label>
+          </div>
+        </div>
+      </div>
+
+      <div id="resetOrLoadGame">
+        <div class="resetOrLoadButton">
+          <div style="height:auto;">
+            <div id="gameInfo" hidden data-cy="game_info"></div>
+            <button id="reset_button" data-cy="reset_button" onclick="newGame()">New Game</button>
+            <button id="load_button" data-cy="load_button" onclick="loadGame()">Load Game</button>
+            <div style='clear:both;'></div>
+          </div>
+          <div id="loadItems"></div>
+          <div style='clear:both;'></div>
+        </div>
+        <div id="gameSelection"></div>
+      </div>
+
+      <div id="lp_section">
+        <div id="op">
+          <div class="op_lp_section">
+            <label class="name_labels" id="opName" data-cy="op_name_label">Player 2:</label>
+            <label id="op_lp" data-cy="op_lp_label">8.000</label>
+          </div>
+          <div class="lp_updown">
+            <div>
+              <input type="number" id="op_increase" data-cy="op_lp_input" />
+            </div>
+            <div class="buttongroup">
+              <button class="lp_change_button" data-cy="op_increase_button" onclick="increase(false)">+</button>
+              <button class="lp_change_button" data-cy="op_decrease_button" onclick="decrease(false)">-</button>
+            </div>
+          </div>
+          <div class="op_history">
+            <label id="op_lp_history" data-cy="op_history_label">8.000<br /></label>
+          </div>
+        </div>
+        <div id="pl">
+          <div class="pl_lp_section">
+            <label class="name_labels" id="plName" data-cy="pl_name_label">Player 1:</label>
+            <label id="pl_lp" data-cy="pl_lp_label">8.000</label>
+          </div>
+          <div class="lp_updown">
+            <div>
+              <input type="number" id="pl_increase" data-cy="pl_lp_input" />
+            </div>
+            <div class="buttongroup">
+              <button class="lp_change_button" data-cy="pl_increase_button" onclick="increase(true)">+</button>
+              <button class="lp_change_button" data-cy="pl_decrease_button" onclick="decrease(true)">-</button>
+            </div>
+          </div>
+          <div class="pl_history">
+            <label id="pl_lp_history" data-cy="pl_history_label">8.000<br /></label>
+          </div>
+        </div>
+        </div>
+      </div>
+  </body>
+</html>
