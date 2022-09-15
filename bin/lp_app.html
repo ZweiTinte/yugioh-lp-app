@@ -9,305 +9,317 @@
       type="text/css"
       href="//fonts.googleapis.com/css?family=Ubuntu"
     />
-    <style>.app {
-  position: relative;
-  max-width: 20rem;
-  width: 100%;
-}
+    <style>
+      .app {
+        position: relative;
+        width: 100%;
+      }
 
-body {
-  background-color: #000000;
-  font-family: "Ubuntu";
-  color: #ffffff;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
+      @media only screen and (min-width: 768px) {
+        .app {
+          position: relative;
+          max-width: 22rem;
+          width: 100%;
+        }
 
-input[type="number"] {
-  appearance: textfield;
-  text-align: center;
-  width: 6.8rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.15rem #000000;
-  min-height: 1.6rem;
-  border: 0.15rem solid #920b87;
-}
+        #lp_section {
+          width: 100%;
+          max-width: 22rem;
+        }
+      }
 
-.ng_row {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 1rem;
-}
+      body {
+        background-color: #000000;
+        font-family: "Ubuntu";
+        color: #ffffff;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+      }
 
-.number_generators {
-  display: inline-block;
-  position: relative;
-}
+      input[type="number"] {
+        appearance: textfield;
+        text-align: center;
+        width: 6.8rem;
+        color: #ffffff;
+        background-color: #666666;
+        border-radius: 0.5rem;
+        min-height: 1.6rem;
+        border: 0.15rem solid #6d3e69;
+        outline: none;
+      }
 
-.buttongroup {
-  margin-top: 0.5rem;
-}
+      .ng_row {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 1rem;
+      }
 
-.ng_row_x {
-  display: flex;
-  justify-content: left;
-}
+      .number_generators {
+        display: inline-block;
+        position: relative;
+      }
 
-.ng_labels_x {
-  display: flex;
-  justify-content: right;
-  position: relative;
-  line-height: 35px;
-}
+      .buttongroup {
+        margin-top: 0.5rem;
+      }
 
-.ng_labels {
-  display: inline-block;
-  position: relative;
-  line-height: 35px;
-}
+      .ng_row_x {
+        display: flex;
+        justify-content: left;
+      }
 
-.number_generator_button {
-  margin: 0.3rem auto;
-  position: relative;
-  display: flex;
-  justify-content: left;
-}
+      .ng_labels_x {
+        display: flex;
+        justify-content: right;
+        position: relative;
+        line-height: 35px;
+      }
 
-.ngx_input {
-  margin-top: 0.1rem;
-  margin-left: 0.3rem;
-  display: inline-block;
-  position: relative;
-  height: auto;
-}
+      .ng_labels {
+        display: inline-block;
+        position: relative;
+        line-height: 35px;
+      }
 
-#ngx_input {
-  position: relative;
-  width: 3.3rem;
-  margin-top: 0.2rem;
-}
+      .number_generator_button {
+        margin: 0.3rem auto;
+        position: relative;
+        display: flex;
+        justify-content: left;
+      }
 
-#one_six_label {
-  display: flex;
-  justify-content: right;
-}
+      .ngx_input {
+        margin-top: 0.1rem;
+        margin-left: 0.3rem;
+        display: inline-block;
+        position: relative;
+        height: auto;
+      }
 
-#zero_one_label {
-  display: flex;
-  justify-content: right;
-}
+      #ngx_input {
+        position: relative;
+        width: 3.3rem;
+        margin-top: 0.2rem;
+      }
 
-#one_x_label {
-  display: flex;
-  justify-content: right;
-  width: auto;
-}
+      #one_six_label {
+        display: flex;
+        justify-content: right;
+      }
 
-#number_generators {
-  top: 0%;
-  height: auto;
-  position: relative;
-  background-color: #666666;
-  padding: 0.25rem;
-  margin-bottom: 0.25rem;
-  width: auto;
-  min-width: 18rem;
-}
+      #zero_one_label {
+        display: flex;
+        justify-content: right;
+      }
 
-#lp_section {
-  width: 100%;
-  max-width: 20rem;
-}
+      #one_x_label {
+        display: flex;
+        justify-content: right;
+        width: auto;
+      }
 
-#op {
-  height: auto;
-  background-color: #666666;
-  padding: 0.26rem;
-  width: 46.75%;
-  min-width: 8.6rem;
-  float: left;
-}
+      #number_generators {
+        top: 0%;
+        height: auto;
+        position: relative;
+        background-color: #666666;
+        padding: 0.25rem;
+        margin-bottom: 0.25rem;
+        width: auto;
+        min-width: 18rem;
+      }
 
-#pl {
-  height: auto;
-  background-color: #666666;
-  padding: 0.26rem;
-  width: 46.75%;
-  min-width: 8.6rem;
-  float: right;
-}
+      #lp_section {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 49.5% 49.5%;
+        column-gap: 0.25rem;
+      }
 
-#resetOrLoadGame {
-  top: 0%;
-  height: auto;
-  position: relative;
-  background-color: #666666;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  width: auto;
-  min-width: 18rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
+      #op {
+        height: auto;
+        background-color: #666666;
+        padding: 0.26rem;
+        min-width: 8.5rem;
+      }
 
-.resetOrLoadbutton {
-  top: 0%;
-  position: relative;
-  vertical-align: top;
-  width: auto;
-  min-width: 18rem;
-  max-width: 19rem;
-  padding: 0;
-}
+      #pl {
+        height: auto;
+        background-color: #666666;
+        padding: 0.26rem;
+        min-width: 8.5rem;
+      }
 
-#gameSelection {
-  margin-top: 0.1rem;
-}
+      #resetOrLoadGame {
+        top: 0%;
+        height: auto;
+        position: relative;
+        background-color: #666666;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+        width: auto;
+        min-width: 18rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
 
-#reset_button {
-  max-width: 8rem;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-  margin-top: 0.25rem;
-  float: left;
-}
+      .resetOrLoadbutton {
+        top: 0%;
+        position: relative;
+        vertical-align: top;
+        width: auto;
+        min-width: 18rem;
+        max-width: 19rem;
+        padding: 0;
+      }
 
-#load_button {
-  max-width: 8rem;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-  margin-top: 0.25rem;
-  float: right;
-}
+      #gameSelection {
+        margin-top: 0.1rem;
+      }
 
-#loadItems {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  width: auto;
-}
+      #reset_button {
+        max-width: 8rem;
+        margin-right: 0.25rem;
+        margin-left: 0.25rem;
+        margin-top: 0.25rem;
+        float: left;
+      }
 
-.buttongroup {
-  width: auto;
-  height: auto;
-  display: block;
-}
+      #load_button {
+        max-width: 8rem;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+        margin-top: 0.25rem;
+        float: right;
+      }
 
-.loadButton {
-  max-width: 5rem;
-  float: left;
-}
+      #loadItems {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        width: auto;
+      }
 
-.loadButtonLabel {
-  margin-top: 0.5rem;
-  float: right;
-}
+      .buttongroup {
+        width: auto;
+        height: auto;
+        display: block;
+      }
 
-.pl_lp_section {
-  background-color: #666666;
-  position: relative;
-  top: 0%;
-  width: auto;
-}
+      .loadButton {
+        max-width: 5rem;
+        float: left;
+      }
 
-.op_lp_section {
-  background-color: #666666;
-  position: relative;
-  top: 0%;
-  width: auto;
-}
+      .loadButtonLabel {
+        margin-top: 0.5rem;
+        float: right;
+      }
 
-#pl_lp {
-  font-size: 1.4rem;
-  width: auto;
-}
+      .pl_lp_section {
+        background-color: #666666;
+        position: relative;
+        top: 0%;
+        width: auto;
+      }
 
-#op_lp {
-  font-size: 1.4rem;
-  width: auto;
-}
+      .op_lp_section {
+        background-color: #666666;
+        position: relative;
+        top: 0%;
+        width: auto;
+      }
 
-#pl_lp_history {
-  text-align: right;
-  padding: 0.25rem;
-  margin: 0.25rem;
-}
+      #pl_lp {
+        font-size: 1.4rem;
+        width: auto;
+      }
 
-#op_lp_history {
-  text-align: right;
-  padding: 0.25rem;
-  margin: 0.25rem;
-}
+      #op_lp {
+        font-size: 1.4rem;
+        width: auto;
+      }
 
-.lp_updown {
-  background-color: #666666;
-  text-align: center;
-  position: relative;
-  padding: 0.25rem;
-  width: auto;
-}
+      #pl_lp_history {
+        text-align: right;
+        padding: 0.25rem;
+        margin: 0.25rem;
+      }
 
-.pl_history {
-  background-color: #666666;
-  text-align: right;
-  position: relative;
-  width: auto;
-}
+      #op_lp_history {
+        text-align: right;
+        padding: 0.25rem;
+        margin: 0.25rem;
+      }
 
-.op_history {
-  background-color: #666666;
-  text-align: right;
-  position: relative;
-  width: auto;
-}
+      .lp_updown {
+        background-color: #666666;
+        text-align: center;
+        position: relative;
+        padding: 0.25rem;
+        width: auto;
+      }
 
-label {
-  color: #ffffff;
-  font-size: 1rem;
-  padding: 0.1rem;
-  white-space: pre-wrap;
-}
+      .pl_history {
+        background-color: #666666;
+        text-align: right;
+        position: relative;
+        width: auto;
+      }
 
-.name_labels {
-  font-size: 0.9rem;
-}
+      .op_history {
+        background-color: #666666;
+        text-align: right;
+        position: relative;
+        width: auto;
+      }
 
-.lp_change_button {
-  min-width: 2.5rem;
-  max-width: 3rem;
-  min-height: 2.5rem;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
+      label {
+        color: #ffffff;
+        font-size: 1rem;
+        padding: 0.1rem;
+        white-space: pre-wrap;
+      }
 
-button {
-  border-radius: 0.5rem;
-  border: 0.1rem solid rgb(97, 2, 43);
-  outline: none;
-  cursor: pointer;
-  color: #ffffff;
-  padding: 0.3rem 0.45rem 0.3rem 0.45rem;
-  box-shadow: inset 1px 1px 4px rgb(31, 6, 17);
-  background: rgb(124, 43, 124);
-  width: 10rem;
-  min-width: 2rem;
-  margin-bottom: 0.25rem;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0.15rem #000000;
-  min-height: 2rem;
-  position: relative;
-}
+      .name_labels {
+        font-size: 0.9rem;
+      }
 
-button:hover {
-  background-color: #b741c7;
-}
-</style>
-    <script>const BASE_LP = "8.000";
+      .lp_change_button {
+        min-width: 2.5rem;
+        max-width: 3rem;
+        min-height: 2.5rem;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+      }
+
+      button {
+        border-radius: 0.5rem;
+        border: 0.15rem solid #6d3e69;
+        outline: none;
+        cursor: pointer;
+        color: #ffffff;
+        padding: 0.3rem 0.45rem 0.3rem 0.45rem;
+        background: #8a3e72;
+        width: 10rem;
+        min-width: 2rem;
+        margin-bottom: 0.25rem;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 2rem;
+        position: relative;
+      }
+
+      button:hover {
+        background-color: #581f5f;
+      }
+    </style>
+    <script>
+      const BASE_LP = "8.000";
       const PLAYER_NAME = "Player 1";
       const OPPONENT_NAME = "Player 2";
       let game = [];
@@ -326,25 +338,22 @@ button:hover {
       }
 
       function generateRandomNumberCoin(min, max) {
-        document.getElementById("zero_one_label").innerHTML = generateRandomNumber(
-          1,
-          2
-        );
+        document.getElementById("zero_one_label").innerHTML =
+          generateRandomNumber(1, 2);
       }
 
       function generateRandomNumberDice(min, max) {
-        document.getElementById("one_six_label").innerHTML = generateRandomNumber(
-          1,
-          6
-        );
+        document.getElementById("one_six_label").innerHTML =
+          generateRandomNumber(1, 6);
       }
 
       function generateRandomNumberX() {
         if (document.getElementById("ngx_input").value !== "") {
-          document.getElementById("one_x_label").innerHTML = generateRandomNumber(
-            1,
-            parseInt(document.getElementById("ngx_input").value)
-          );
+          document.getElementById("one_x_label").innerHTML =
+            generateRandomNumber(
+              1,
+              parseInt(document.getElementById("ngx_input").value)
+            );
         }
       }
 
@@ -421,7 +430,9 @@ button:hover {
         const GAME = games[gameId];
         GAME.forEach(function (step) {
           let id = step.player === PLAYER_NAME ? "pl_increase" : "op_increase";
-          document.getElementById(id).value = Math.abs(step.lpChange).toString();
+          document.getElementById(id).value = Math.abs(
+            step.lpChange
+          ).toString();
 
           if (step.lpChange > 0) {
             increase(step.player === PLAYER_NAME);
@@ -439,7 +450,8 @@ button:hover {
 
       function setGameInfo() {
         let gameInfo = { game: game };
-        document.getElementById("gameInfo").innerHTML = JSON.stringify(gameInfo);
+        document.getElementById("gameInfo").innerHTML =
+          JSON.stringify(gameInfo);
       }
 
       function increase(player) {
@@ -449,7 +461,9 @@ button:hover {
           let lp_before = parseInt(
             removeThousandSeparator(document.getElementById(`${PLAYER_ID}_lp`))
           );
-          points = parseInt(document.getElementById(`${PLAYER_ID}_increase`).value);
+          points = parseInt(
+            document.getElementById(`${PLAYER_ID}_increase`).value
+          );
           if (points) {
             logLpChangeEvent(player, parseInt(points));
             let result = lp_before + points;
@@ -470,7 +484,9 @@ button:hover {
           let lp_before = parseInt(
             removeThousandSeparator(document.getElementById(`${PLAYER_ID}_lp`))
           );
-          points = parseInt(document.getElementById(`${PLAYER_ID}_increase`).value);
+          points = parseInt(
+            document.getElementById(`${PLAYER_ID}_increase`).value
+          );
           if (points) {
             logLpChangeEvent(player, parseInt(-points));
             let result = lp_before - points;
@@ -486,7 +502,7 @@ button:hover {
           }
         }
       }
-</script>
+    </script>
   </head>
   <body>
     <div class="app">
@@ -494,8 +510,13 @@ button:hover {
         <div class="ng_row">
           <div class="ng_row_x">
             <div class="number_generators">
-              <button class="number_generator_button" data-cy="rng_x" onclick="generateRandomNumberX()">RNG between 1
-                and x:</button>
+              <button
+                class="number_generator_button"
+                data-cy="rng_x"
+                onclick="generateRandomNumberX()"
+              >
+                RNG between 1 and x:
+              </button>
             </div>
             <div class="ngx_input">
               <input type="number" data-cy="ngx_input" id="ngx_input" />
@@ -507,15 +528,27 @@ button:hover {
         </div>
         <div class="ng_row">
           <div class="number_generators">
-            <button class="number_generator_button" data-cy="rng_dice" onclick="generateRandomNumberDice()">RNG between 1 and 6:</button>
+            <button
+              class="number_generator_button"
+              data-cy="rng_dice"
+              onclick="generateRandomNumberDice()"
+            >
+              RNG between 1 and 6:
+            </button>
           </div>
           <div class="ng_labels">
             <label data-cy="one_six_label" id="one_six_label"></label>
           </div>
         </div>
         <div class="ng_row">
-          <div class="number_generators" >
-            <button class="number_generator_button" data-cy="rng_coin" onclick="generateRandomNumberCoin()">RNG between 1 and 2: </button>
+          <div class="number_generators">
+            <button
+              class="number_generator_button"
+              data-cy="rng_coin"
+              onclick="generateRandomNumberCoin()"
+            >
+              RNG between 1 and 2:
+            </button>
           </div>
           <div class="ng_labels">
             <label data-cy="zero_one_label" id="zero_one_label"></label>
@@ -525,14 +558,22 @@ button:hover {
 
       <div id="resetOrLoadGame">
         <div class="resetOrLoadButton">
-          <div style="height:auto;">
+          <div style="height: auto">
             <div id="gameInfo" hidden data-cy="game_info"></div>
-            <button id="reset_button" data-cy="reset_button" onclick="newGame()">New Game</button>
-            <button id="load_button" data-cy="load_button" onclick="loadGame()">Load Game</button>
-            <div style='clear:both;'></div>
+            <button
+              id="reset_button"
+              data-cy="reset_button"
+              onclick="newGame()"
+            >
+              New Game
+            </button>
+            <button id="load_button" data-cy="load_button" onclick="loadGame()">
+              Load Game
+            </button>
+            <div style="clear: both"></div>
           </div>
           <div id="loadItems"></div>
-          <div style='clear:both;'></div>
+          <div style="clear: both"></div>
         </div>
         <div id="gameSelection"></div>
       </div>
@@ -540,7 +581,9 @@ button:hover {
       <div id="lp_section">
         <div id="op">
           <div class="op_lp_section">
-            <label class="name_labels" id="opName" data-cy="op_name_label">Player 2:</label>
+            <label class="name_labels" id="opName" data-cy="op_name_label"
+              >Player 2:</label
+            >
             <label id="op_lp" data-cy="op_lp_label">8.000</label>
           </div>
           <div class="lp_updown">
@@ -548,17 +591,33 @@ button:hover {
               <input type="number" id="op_increase" data-cy="op_lp_input" />
             </div>
             <div class="buttongroup">
-              <button class="lp_change_button" data-cy="op_increase_button" onclick="increase(false)">+</button>
-              <button class="lp_change_button" data-cy="op_decrease_button" onclick="decrease(false)">-</button>
+              <button
+                class="lp_change_button"
+                data-cy="op_increase_button"
+                onclick="increase(false)"
+              >
+                +
+              </button>
+              <button
+                class="lp_change_button"
+                data-cy="op_decrease_button"
+                onclick="decrease(false)"
+              >
+                -
+              </button>
             </div>
           </div>
           <div class="op_history">
-            <label id="op_lp_history" data-cy="op_history_label">8.000<br /></label>
+            <label id="op_lp_history" data-cy="op_history_label"
+              >8.000<br
+            /></label>
           </div>
         </div>
         <div id="pl">
           <div class="pl_lp_section">
-            <label class="name_labels" id="plName" data-cy="pl_name_label">Player 1:</label>
+            <label class="name_labels" id="plName" data-cy="pl_name_label"
+              >Player 1:</label
+            >
             <label id="pl_lp" data-cy="pl_lp_label">8.000</label>
           </div>
           <div class="lp_updown">
@@ -566,15 +625,29 @@ button:hover {
               <input type="number" id="pl_increase" data-cy="pl_lp_input" />
             </div>
             <div class="buttongroup">
-              <button class="lp_change_button" data-cy="pl_increase_button" onclick="increase(true)">+</button>
-              <button class="lp_change_button" data-cy="pl_decrease_button" onclick="decrease(true)">-</button>
+              <button
+                class="lp_change_button"
+                data-cy="pl_increase_button"
+                onclick="increase(true)"
+              >
+                +
+              </button>
+              <button
+                class="lp_change_button"
+                data-cy="pl_decrease_button"
+                onclick="decrease(true)"
+              >
+                -
+              </button>
             </div>
           </div>
           <div class="pl_history">
-            <label id="pl_lp_history" data-cy="pl_history_label">8.000<br /></label>
+            <label id="pl_lp_history" data-cy="pl_history_label"
+              >8.000<br
+            /></label>
           </div>
         </div>
-        </div>
       </div>
+    </div>
   </body>
 </html>

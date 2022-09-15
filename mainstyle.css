@@ -1,7 +1,19 @@
 .app {
   position: relative;
-  max-width: 20rem;
   width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .app {
+    position: relative;
+    max-width: 22rem;
+    width: 100%;
+  }
+
+  #lp_section {
+    width: 100%;
+    max-width: 22rem;
+  }
 }
 
 body {
@@ -18,10 +30,12 @@ input[type="number"] {
   appearance: textfield;
   text-align: center;
   width: 6.8rem;
+  color: #ffffff;
+  background-color: #666666;
   border-radius: 0.5rem;
-  box-shadow: 0 0.15rem #000000;
   min-height: 1.6rem;
-  border: 0.15rem solid #920b87;
+  border: 0.15rem solid #6d3e69;
+  outline: none;
 }
 
 .ng_row {
@@ -107,25 +121,23 @@ input[type="number"] {
 
 #lp_section {
   width: 100%;
-  max-width: 20rem;
+  display: grid;
+  grid-template-columns: 49.5% 49.5%;
+  column-gap: 0.25rem;
 }
 
 #op {
   height: auto;
   background-color: #666666;
   padding: 0.26rem;
-  width: 46.75%;
-  min-width: 8.6rem;
-  float: left;
+  min-width: 8.5rem;
 }
 
 #pl {
   height: auto;
   background-color: #666666;
   padding: 0.26rem;
-  width: 46.75%;
-  min-width: 8.6rem;
-  float: right;
+  min-width: 8.5rem;
 }
 
 #resetOrLoadGame {
@@ -274,24 +286,22 @@ label {
 
 button {
   border-radius: 0.5rem;
-  border: 0.1rem solid rgb(97, 2, 43);
+  border: 0.15rem solid #6d3e69;
   outline: none;
   cursor: pointer;
   color: #ffffff;
   padding: 0.3rem 0.45rem 0.3rem 0.45rem;
-  box-shadow: inset 1px 1px 4px rgb(31, 6, 17);
-  background: rgb(124, 43, 124);
+  background: #8a3e72;
   width: 10rem;
   min-width: 2rem;
   margin-bottom: 0.25rem;
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 0.15rem #000000;
   min-height: 2rem;
   position: relative;
 }
 
 button:hover {
-  background-color: #b741c7;
+  background-color: #581f5f;
 }
