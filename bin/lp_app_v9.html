@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LP App</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Ubuntu"
+    />
+    <style>
+      .app {
+        position: relative;
+        width: 100%;
+      }
+
+      @media only screen and (min-width: 768px) {
+        .app {
+          position: relative;
+          max-width: 22rem;
+          width: 100%;
+        }
+
+        #lp_section {
+          width: 100%;
+          max-width: 22rem;
+        }
+      }
+
+      body {
+        background-color: #000000;
+        font-family: "Ubuntu";
+        color: #ffffff;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+      }
+
+      input[type="number"] {
+        appearance: textfield;
+        text-align: center;
+        width: 6.8rem;
+        color: #ffffff;
+        background-color: #666666;
+        border-radius: 0.5rem;
+        min-height: 1.6rem;
+        border: 0.15rem solid #6d3e69;
+        outline: none;
+      }
+
+      .ng_row {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 1rem;
+      }
+
+      .number_generators {
+        display: inline-block;
+        position: relative;
+      }
+
+      .buttongroup {
+        margin-top: 0.5rem;
+      }
+
+      .ng_row_x {
+        display: flex;
+        justify-content: left;
+      }
+
+      .ng_labels_x {
+        display: flex;
+        justify-content: right;
+        position: relative;
+        line-height: 35px;
+      }
+
+      .ng_labels {
+        display: inline-block;
+        position: relative;
+        line-height: 35px;
+      }
+
+      .number_generator_button {
+        margin: 0.3rem auto;
+        position: relative;
+        display: flex;
+        justify-content: left;
+      }
+
+      .ngx_input {
+        margin-top: 0.1rem;
+        margin-left: 0.3rem;
+        display: inline-block;
+        position: relative;
+        height: auto;
+      }
+
+      #ngx_input {
+        position: relative;
+        width: 3.3rem;
+        margin-top: 0.2rem;
+      }
+
+      #one_six_label {
+        display: flex;
+        justify-content: right;
+      }
+
+      #zero_one_label {
+        display: flex;
+        justify-content: right;
+      }
+
+      #one_x_label {
+        display: flex;
+        justify-content: right;
+        width: auto;
+      }
+
+      #number_generators {
+        top: 0%;
+        height: auto;
+        position: relative;
+        background-color: #666666;
+        padding: 0.25rem;
+        margin-bottom: 0.25rem;
+        width: auto;
+        min-width: 18rem;
+      }
+
+      #lp_section {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 49.5% 49.5%;
+        column-gap: 0.25rem;
+      }
+
+      #op {
+        height: auto;
+        background-color: #666666;
+        padding: 0.26rem;
+        min-width: 8.5rem;
+      }
+
+      #pl {
+        height: auto;
+        background-color: #666666;
+        padding: 0.26rem;
+        min-width: 8.5rem;
+      }
+
+      #resetOrLoadGame {
+        top: 0%;
+        height: auto;
+        position: relative;
+        background-color: #666666;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+        width: auto;
+        min-width: 18rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .resetOrLoadbutton {
+        top: 0%;
+        position: relative;
+        vertical-align: top;
+        width: auto;
+        min-width: 18rem;
+        max-width: 19rem;
+        padding: 0;
+      }
+
+      #gameSelection {
+        margin-top: 0.1rem;
+      }
+
+      #reset_button {
+        max-width: 8rem;
+        margin-right: 0.25rem;
+        margin-left: 0.25rem;
+        margin-top: 0.25rem;
+        float: left;
+      }
+
+      #load_button {
+        max-width: 8rem;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+        margin-top: 0.25rem;
+        float: right;
+      }
+
+      #loadItems {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        width: auto;
+      }
+
+      .buttongroup {
+        width: auto;
+        height: auto;
+        display: block;
+      }
+
+      .loadButton {
+        max-width: 5rem;
+        float: left;
+      }
+
+      .loadButtonLabel {
+        margin-top: 0.5rem;
+        float: right;
+      }
+
+      .pl_lp_section {
+        background-color: #666666;
+        position: relative;
+        top: 0%;
+        width: auto;
+      }
+
+      .op_lp_section {
+        background-color: #666666;
+        position: relative;
+        top: 0%;
+        width: auto;
+      }
+
+      #pl_lp {
+        font-size: 1.4rem;
+        width: auto;
+      }
+
+      #op_lp {
+        font-size: 1.4rem;
+        width: auto;
+      }
+
+      #pl_lp_history {
+        text-align: right;
+        padding: 0.25rem;
+        margin: 0.25rem;
+      }
+
+      #op_lp_history {
+        text-align: right;
+        padding: 0.25rem;
+        margin: 0.25rem;
+      }
+
+      .lp_updown {
+        background-color: #666666;
+        text-align: center;
+        position: relative;
+        padding: 0.25rem;
+        width: auto;
+      }
+
+      .pl_history {
+        background-color: #666666;
+        text-align: right;
+        position: relative;
+        width: auto;
+      }
+
+      .op_history {
+        background-color: #666666;
+        text-align: right;
+        position: relative;
+        width: auto;
+      }
+
+      label {
+        color: #ffffff;
+        font-size: 1rem;
+        padding: 0.1rem;
+        white-space: pre-wrap;
+      }
+
+      .name_labels {
+        font-size: 0.9rem;
+      }
+
+      .lp_change_button {
+        min-width: 2.5rem;
+        max-width: 3rem;
+        min-height: 2.5rem;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+      }
+
+      button {
+        border-radius: 0.5rem;
+        border: 0.15rem solid #6d3e69;
+        outline: none;
+        cursor: pointer;
+        color: #ffffff;
+        padding: 0.3rem 0.45rem 0.3rem 0.45rem;
+        background: #8a3e72;
+        width: 10rem;
+        min-width: 2rem;
+        margin-bottom: 0.25rem;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 2rem;
+        position: relative;
+      }
+
+      button:hover {
+        background-color: #581f5f;
+      }
+    </style>
+    <script>
+      const BASE_LP = "8.000";
+      const PLAYER_NAME = "Player 1";
+      const OPPONENT_NAME = "Player 2";
+      let game = [];
+      let games = [];
+
+      function addThousandSeparator(el) {
+        return el.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+
+      function removeThousandSeparator(element) {
+        return element.innerHTML.replace(".", "");
+      }
+
+      function generateRandomNumber(min, max) {
+        return Math.floor(Math.random() * max) + min;
+      }
+
+      function generateRandomNumberCoin(min, max) {
+        document.getElementById("zero_one_label").innerHTML =
+          generateRandomNumber(1, 2);
+      }
+
+      function generateRandomNumberDice(min, max) {
+        document.getElementById("one_six_label").innerHTML =
+          generateRandomNumber(1, 6);
+      }
+
+      function generateRandomNumberX() {
+        if (document.getElementById("ngx_input").value !== "") {
+          document.getElementById("one_x_label").innerHTML =
+            generateRandomNumber(
+              1,
+              parseInt(document.getElementById("ngx_input").value)
+            );
+        }
+      }
+
+      function newGame() {
+        removeAllChildNodes(document.getElementById("loadItems"));
+        if (game.length) {
+          games.push(game);
+        }
+        game = [];
+        setGameInfo();
+        resetFields();
+      }
+
+      function resetFields() {
+        document.getElementById("pl_lp").innerHTML = BASE_LP;
+        document.getElementById("op_lp").innerHTML = BASE_LP;
+        document.getElementById("pl_lp_history").innerHTML = BASE_LP;
+        document.getElementById("op_lp_history").innerHTML = BASE_LP;
+        document
+          .getElementById("op_lp_history")
+          .appendChild(document.createElement("BR"));
+        document
+          .getElementById("pl_lp_history")
+          .appendChild(document.createElement("BR"));
+        document.getElementById("ngx_input").value = "";
+        document.getElementById("one_x_label").innerHTML = "";
+        document.getElementById("one_six_label").innerHTML = "";
+        document.getElementById("zero_one_label").innerHTML = "";
+        document.getElementById("pl_increase").value = "";
+        document.getElementById("op_increase").value = "";
+      }
+
+      function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+          parent.removeChild(parent.firstChild);
+        }
+      }
+
+      function loadGame() {
+        removeAllChildNodes(document.getElementById("loadItems"));
+        for (let i = 0; i < games.length; i++) {
+          let button = document.createElement("BUTTON");
+          let buttonLabel = document.createElement("LABEL");
+          let newLine = document.createElement("DIV");
+          let floatEnd = document.createElement("DIV");
+
+          floatEnd.setAttribute("style", "clear:both;");
+
+          button.setAttribute("class", "loadButton");
+          button.setAttribute("data-cy", "loadButton" + i);
+          button.innerHTML = "load";
+          button.addEventListener("click", function () {
+            load(i);
+          });
+
+          buttonLabel.setAttribute("class", "loadButtonLabel");
+          buttonLabel.setAttribute("data-cy", "loadButtonLabel" + i);
+          buttonLabel.innerHTML = "Game " + (i + 1);
+
+          newLine.setAttribute("id", "listItem" + i);
+          newLine.setAttribute("class", "buttongroup");
+
+          document.getElementById("loadItems").appendChild(newLine);
+          document.getElementById("listItem" + i).appendChild(button);
+          document.getElementById("listItem" + i).appendChild(buttonLabel);
+          document.getElementById("listItem" + i).appendChild(floatEnd);
+        }
+      }
+
+      function load(gameId) {
+        resetFields();
+        removeAllChildNodes(document.getElementById("loadItems"));
+        document.getElementById("gameSelection").innerHTML = "";
+        const GAME = games[gameId];
+        GAME.forEach(function (step) {
+          let id = step.player === PLAYER_NAME ? "pl_increase" : "op_increase";
+          document.getElementById(id).value = Math.abs(
+            step.lpChange
+          ).toString();
+
+          if (step.lpChange > 0) {
+            increase(step.player === PLAYER_NAME);
+          } else {
+            decrease(step.player === PLAYER_NAME);
+          }
+        });
+      }
+
+      function logLpChangeEvent(player, points) {
+        const PLAYERNAME = player ? PLAYER_NAME : OPPONENT_NAME;
+        game.push({ player: PLAYERNAME, lpChange: points });
+        setGameInfo();
+      }
+
+      function setGameInfo() {
+        let gameInfo = { game: game };
+        document.getElementById("gameInfo").innerHTML =
+          JSON.stringify(gameInfo);
+      }
+
+      function increase(player) {
+        let points = 0;
+        const PLAYER_ID = player ? "pl" : "op";
+        if (document.getElementById(`${PLAYER_ID}_increase`).value !== "") {
+          let lp_before = parseInt(
+            removeThousandSeparator(document.getElementById(`${PLAYER_ID}_lp`))
+          );
+          points = parseInt(
+            document.getElementById(`${PLAYER_ID}_increase`).value
+          );
+          if (points) {
+            logLpChangeEvent(player, parseInt(points));
+            let result = lp_before + points;
+            let label = document.getElementById(`${PLAYER_ID}_lp_history`);
+            lp_before = addThousandSeparator(lp_before);
+            points = addThousandSeparator(points);
+            result = addThousandSeparator(result);
+            label.innerHTML += "+ " + points + " = " + result + "<br> ";
+            document.getElementById(`${PLAYER_ID}_lp`).innerHTML = result;
+          }
+        }
+      }
+
+      function decrease(player) {
+        let points = 0;
+        const PLAYER_ID = player ? "pl" : "op";
+        if (document.getElementById(`${PLAYER_ID}_increase`).value !== "") {
+          let lp_before = parseInt(
+            removeThousandSeparator(document.getElementById(`${PLAYER_ID}_lp`))
+          );
+          points = parseInt(
+            document.getElementById(`${PLAYER_ID}_increase`).value
+          );
+          if (points) {
+            logLpChangeEvent(player, parseInt(-points));
+            let result = lp_before - points;
+            if (result < 0) {
+              result = 0;
+            }
+            let label = document.getElementById(`${PLAYER_ID}_lp_history`);
+            lp_before = addThousandSeparator(lp_before);
+            points = addThousandSeparator(points);
+            result = addThousandSeparator(result);
+            label.innerHTML += "- " + points + " = " + result + "<br> ";
+            document.getElementById(`${PLAYER_ID}_lp`).innerHTML = result;
+          }
+        }
+      }
+
+      function half(player) {
+        let points = 0;
+        const PLAYER_ID = player ? "pl" : "op";
+        let lp_before = parseInt(
+          removeThousandSeparator(document.getElementById(`${PLAYER_ID}_lp`))
+        );
+        points = Math.floor(lp_before / 2);
+        if (points) {
+          logLpChangeEvent(player, parseInt(-points));
+          let result = lp_before - points;
+          if (result < 0) {
+            result = 0;
+          }
+          let label = document.getElementById(`${PLAYER_ID}_lp_history`);
+          lp_before = addThousandSeparator(lp_before);
+          points = addThousandSeparator(points);
+          result = addThousandSeparator(result);
+          label.innerHTML += "- " + points + " = " + result + "<br> ";
+          document.getElementById(`${PLAYER_ID}_lp`).innerHTML = result;
+        }
+      }
+
+      function duplicate(player) {
+        let points = 0;
+        const PLAYER_ID = player ? "pl" : "op";
+        let lp_before = parseInt(
+          removeThousandSeparator(document.getElementById(`${PLAYER_ID}_lp`))
+        );
+        points = lp_before;
+        if (points) {
+          logLpChangeEvent(player, parseInt(points));
+          let result = lp_before + points;
+          let label = document.getElementById(`${PLAYER_ID}_lp_history`);
+          lp_before = addThousandSeparator(lp_before);
+          points = addThousandSeparator(points);
+          result = addThousandSeparator(result);
+          label.innerHTML += "+ " + points + " = " + result + "<br> ";
+          document.getElementById(`${PLAYER_ID}_lp`).innerHTML = result;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="app">
+      <div id="number_generators">
+        <div class="ng_row">
+          <div class="ng_row_x">
+            <div class="number_generators">
+              <button
+                class="number_generator_button"
+                data-cy="rng_x"
+                onclick="generateRandomNumberX()"
+              >
+                RNG between 1 and x:
+              </button>
+            </div>
+            <div class="ngx_input">
+              <input type="number" data-cy="ngx_input" id="ngx_input" />
+            </div>
+          </div>
+          <div class="ng_labels_x">
+            <label data-cy="one_x_label" id="one_x_label"></label>
+          </div>
+        </div>
+        <div class="ng_row">
+          <div class="number_generators">
+            <button
+              class="number_generator_button"
+              data-cy="rng_dice"
+              onclick="generateRandomNumberDice()"
+            >
+              RNG between 1 and 6:
+            </button>
+          </div>
+          <div class="ng_labels">
+            <label data-cy="one_six_label" id="one_six_label"></label>
+          </div>
+        </div>
+        <div class="ng_row">
+          <div class="number_generators">
+            <button
+              class="number_generator_button"
+              data-cy="rng_coin"
+              onclick="generateRandomNumberCoin()"
+            >
+              RNG between 1 and 2:
+            </button>
+          </div>
+          <div class="ng_labels">
+            <label data-cy="zero_one_label" id="zero_one_label"></label>
+          </div>
+        </div>
+      </div>
+
+      <div id="resetOrLoadGame">
+        <div class="resetOrLoadButton">
+          <div style="height: auto">
+            <div id="gameInfo" hidden data-cy="game_info"></div>
+            <button
+              id="reset_button"
+              data-cy="reset_button"
+              onclick="newGame()"
+            >
+              New Game
+            </button>
+            <button id="load_button" data-cy="load_button" onclick="loadGame()">
+              Load Game
+            </button>
+            <div style="clear: both"></div>
+          </div>
+          <div id="loadItems"></div>
+          <div style="clear: both"></div>
+        </div>
+        <div id="gameSelection"></div>
+      </div>
+
+      <div id="lp_section">
+        <div id="op">
+          <div class="op_lp_section">
+            <label class="name_labels" id="opName" data-cy="op_name_label"
+              >Player 2:</label
+            >
+            <label id="op_lp" data-cy="op_lp_label">8.000</label>
+          </div>
+          <div class="lp_updown">
+            <div>
+              <input type="number" id="op_increase" data-cy="op_lp_input" />
+            </div>
+            <div class="buttongroup">
+              <button
+                class="lp_change_button"
+                data-cy="op_increase_button"
+                onclick="increase(false)"
+              >
+                +
+              </button>
+              <button
+                class="lp_change_button"
+                data-cy="op_decrease_button"
+                onclick="decrease(false)"
+              >
+                -
+              </button>
+            </div>
+            <div class="buttongroup">
+              <button
+                class="lp_change_button"
+                data-cy="op_duplicate_button"
+                onclick="duplicate(false)"
+              >
+                *2
+              </button>
+              <button
+                class="lp_change_button"
+                data-cy="op_half_button"
+                onclick="half(false)"
+              >
+                1/2
+              </button>
+            </div>
+          </div>
+          <div class="op_history">
+            <label id="op_lp_history" data-cy="op_history_label"
+              >8.000<br
+            /></label>
+          </div>
+        </div>
+        <div id="pl">
+          <div class="pl_lp_section">
+            <label class="name_labels" id="plName" data-cy="pl_name_label"
+              >Player 1:</label
+            >
+            <label id="pl_lp" data-cy="pl_lp_label">8.000</label>
+          </div>
+          <div class="lp_updown">
+            <div>
+              <input type="number" id="pl_increase" data-cy="pl_lp_input" />
+            </div>
+            <div class="buttongroup">
+              <button
+                class="lp_change_button"
+                data-cy="pl_increase_button"
+                onclick="increase(true)"
+              >
+                +
+              </button>
+              <button
+                class="lp_change_button"
+                data-cy="pl_decrease_button"
+                onclick="decrease(true)"
+              >
+                -
+              </button>
+            </div>
+            <div class="buttongroup">
+              <button
+                class="lp_change_button"
+                data-cy="pl_duplicate_button"
+                onclick="duplicate(true)"
+              >
+                *2
+              </button>
+              <button
+                class="lp_change_button"
+                data-cy="pl_half_button"
+                onclick="half(true)"
+              >
+                1/2
+              </button>
+            </div>
+          </div>
+          <div class="pl_history">
+            <label id="pl_lp_history" data-cy="pl_history_label"
+              >8.000<br
+            /></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

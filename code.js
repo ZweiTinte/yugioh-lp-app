@@ -177,3 +177,44 @@ function decrease(player) {
     }
   }
 }
+
+function half(player) {
+  let points = 0;
+  const PLAYER_ID = player ? "pl" : "op";
+  let lp_before = parseInt(
+    removeThousandSeparator(document.getElementById(`${PLAYER_ID}_lp`))
+  );
+  points = Math.floor(lp_before / 2);
+  if (points) {
+    logLpChangeEvent(player, parseInt(-points));
+    let result = lp_before - points;
+    if (result < 0) {
+      result = 0;
+    }
+    let label = document.getElementById(`${PLAYER_ID}_lp_history`);
+    lp_before = addThousandSeparator(lp_before);
+    points = addThousandSeparator(points);
+    result = addThousandSeparator(result);
+    label.innerHTML += "- " + points + " = " + result + "<br> ";
+    document.getElementById(`${PLAYER_ID}_lp`).innerHTML = result;
+  }
+}
+
+function duplicate(player) {
+  let points = 0;
+  const PLAYER_ID = player ? "pl" : "op";
+  let lp_before = parseInt(
+    removeThousandSeparator(document.getElementById(`${PLAYER_ID}_lp`))
+  );
+  points = lp_before;
+  if (points) {
+    logLpChangeEvent(player, parseInt(points));
+    let result = lp_before + points;
+    let label = document.getElementById(`${PLAYER_ID}_lp_history`);
+    lp_before = addThousandSeparator(lp_before);
+    points = addThousandSeparator(points);
+    result = addThousandSeparator(result);
+    label.innerHTML += "+ " + points + " = " + result + "<br> ";
+    document.getElementById(`${PLAYER_ID}_lp`).innerHTML = result;
+  }
+}
